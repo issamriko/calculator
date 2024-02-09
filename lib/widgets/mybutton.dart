@@ -4,25 +4,29 @@ class Mybutton extends StatelessWidget {
   final String buttontext;
   final Color color;
   final Color textcolor;
+  final buttonTapped;
   const Mybutton({
     super.key,
     required this.buttontext,
     required this.color,
-    required this.textcolor,
+    required this.textcolor, this.buttonTapped,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(5),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: color,
-      ),
-      child: Center(
-        child: Text(
-          buttontext,
-          style: TextStyle(color: textcolor, fontSize: 18),
+    return GestureDetector(
+      onTap: buttonTapped,
+      child: Container(
+        margin: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: color,
+        ),
+        child: Center(
+          child: Text(
+            buttontext,
+            style: TextStyle(color: textcolor, fontSize: 18),
+          ),
         ),
       ),
     );
